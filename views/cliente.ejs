@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cotizador online Ciudad Maderas asesor <%= user.first_name %> <%= user.last_name %>">
+    <title>Cotizador Online Ciudad Maderas</title>
+    <link rel="stylesheet" href="/static/css/output.css">
+</head>
+<body>
+    <form name="mainForm" class="p-6 flex flex-col m-auto max-w-xl">
+        <img src="/static/images/logo-color.svg" alt="Ciudad Maderas Logo" class="w-72 m-auto py-5">
+        <h4 class="mt-6 text-center">Bienvenido(a), soy el asesor</h4>
+        <h2 class="text-2xl font-bold mb-6 text-center"><%= user.first_name %> <%= user.last_name %></h2>
+        <p class="text-gray-700 text-center mb-10">Para cotizar tu terreno, sigue los siguientes pasos:</p>
+        <!-- LOCATION SELECTION -->
+        <label class="mb-3" for="locations">1. Selecciona el desarrollo:</label>
+        <select class="mb-6 appearance-none rounded-full p-1 px-4" name="locations" id="locations"></select>
+
+        <!-- SQUARE METERS INPUT -->    
+        <label class="mt-6 mb-3" for="squareMeters">2. Metros cuadrados: <span class="font-bold text-blue-500 bg-blue-200 px-2 rounded-full" id="squareMetersLabel"></span></label>
+        <input class="mb-6 appearance-none bg-slate-300 h-2 w-full rounded-full" name="squareMeters" id="squareMeters" type="range" min="112" max="300" value="112" step="1">
+
+        <!-- TERM SELECTION -->
+        <label class="mt-6 mb-3" for="term">3. Plazo de financiamiento en años: <span class="font-bold text-blue-500 bg-blue-200 px-2 rounded-full" id="termLabel"></span></label>
+        <input class="mb-6 appearance-none bg-slate-300 h-2 w-full rounded-full" name="term" id="term" type="range" min="3" max="20" value="20" step="1">
+
+        <!-- DOWN PAYMENT SELECTION -->
+        <label class="mb-3" for="downPayment">Porcentaje de Enganche: </label>
+        <select class="mb-6 rounded-full" name="downPayment" id="downPayment"></select>
+
+        <!-- LAND PRICE -->
+        <input type="text" name="landPrice" value="0" class="hidden">
+
+        <!-- EMAIL -->
+        <input type="email" name="sendEmail" value="<%= user.email %>" class="hidden">
+
+        <hr class="my-5 border-slate-300">
+        <!-- FORM INFO -->
+        <input type="text" name="name" class="rounded-full mb-6" placeholder="Nombre" required>
+        <input type="email" name="email" class="rounded-full mb-6" placeholder="Correo electrónico" required>
+        <input type="tel" name="tel" class="rounded-full mb-6" placeholder="Teléfono" required>
+
+        <hr class="my-5 border-slate-300">
+
+        <p class="text-sm text-center text-gray-600 my-4">Al presionar el botón, indicas que estás de acuerdo con los <a href="#" class="text-blue-600">términos y condiciones</a>.</p>
+
+        <button class="text-white bg-blue-500 text-sm hover:bg-blue-500/90 tracking-wider p-2 mt-5 rounded-full" type="submit">Cotizar terreno</button>
+    </form>
+    <script src="/static/js/cliente.js"></script>
+</body>
+</html>

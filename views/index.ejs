@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cotizador Online para asesores Ciudad Maderas <%= title %> ">
+    <title>Cotizador Online para Asesores Ciudad Maderas</title>
+    <link rel="stylesheet" href="/static/css/output.css">
+</head>
+<body>
+    <form name="mainForm" class="p-6 flex flex-col m-auto max-w-xl">
+        <img src="/static/images/logo-color.svg" alt="Ciudad Maderas Logo" class="w-72 m-auto py-5">
+        <h1 id="title" class="text-xl m-auto font-semibold text-center tracking-wide"><%= title %> </h1>
+        <h2 id="plaza" class="text-md text-center m-auto mb-5"><%= plaza %> </h2>
+        <!-- LOCATION SELECTION -->
+        <label class="mb-3" for="locations">Desarrollo: </label>
+        <select class="mb-6 appearance-none rounded-full p-1 px-4" name="locations" id="locations"></select>
+
+        <!-- CLUSTER SELECTION -->
+        <label class="mb-3" for="locations">Cluster: </label>
+        <input type="text" name="cluster" maxlength="30" id="cluster" class="mb-6 appearance-none rounded-full p-1 px-4" required>
+        <p id="clusterMsg" class="text-xs text-red-600 mb-3"></p>
+
+        <!-- LAND SECTION SELECTION -->
+        <label class="mb-3" for="landSection">Lote: </label>
+        <input type="text" name="landSection" maxlength="10" id="landSection" class="mb-1 p-1 px-4 rounded-full" required>
+        <p id="landSectionMsg" class="text-xs text-red-600 mb-3"></p>
+
+        <!-- SQUARE METERS INPUT -->
+        <label class="mb-3" for="squareMeters">Metros cuadrados:</label>
+        <input class="mb-1 p-1 px-4 rounded-full" name="squareMeters" id="squareMeters" type="text" value="112" required>
+        <p id="squareMetersMsg" class="text-xs text-red-600 mb-3"></p>
+
+        <!-- DOWN PAYMENT SELECTION -->
+        <label class="mb-3" for="downPayment">Porcentaje de Enganche: </label>
+        <select class="mb-6 rounded-full" name="downPayment" id="downPayment"></select>
+
+        <!-- LAND PRICE INPUT -->
+        <label class="mb-3" for="landPrice">Precio por metro cuadrado (mxn):</label>
+        <input class="mb-1 p-1 px-4 rounded-full" name="landPrice" id="landPrice" type="text" required>
+        <p id="landPriceMsg" class="text-xs text-red-600"></p>
+
+        <!-- TERM SELECTION -->
+        <label class="mt-6 mb-3" for="term">Plazo de inversión en años: <span class="font-bold text-blue-500 bg-blue-200 px-2 rounded-full" id="termLabel">20</span></label>
+        <input class="mb-6 appearance-none bg-slate-300 h-2 w-full rounded-full" name="term" id="term" type="range" min="3" max="20" value="20" step="1">
+
+        <!-- MSI INPUT -->
+        <label class="mb-3" for="msi">Meses sin intereses: <span class="font-bold text-blue-500 bg-blue-200 px-2 rounded-full" id="msiLabel">36</span></label>
+        <input class="mb-6 appearance-none bg-slate-300 h-2 w-full rounded-full" name="msi" id="msi" type="range" min="0" max="36" value="36" step="1">
+        <p id="msiMsg" class="text-xs text-red-600"></p>
+
+        <!-- BASE DISCOUNT PERCENTAGE INPUT -->
+        <label class="mb-3" for="baseDiscount">Porcentaje de descuento base: </label>
+        <input class="mb-1 p-1 px-4 rounded-full" type="number" name="baseDiscount" id="baseDiscount" min="0" value="0" required>
+        <p id="baseDiscountMsg" class="text-xs text-red-600"></p>
+
+        <!-- ADDITIONAL DISCOUNT PERCENTAGE INPUT    -->
+        <label class="mb-3 mt-6" for="additonalDiscount">Porcentaje de descuento adicional: </label>
+        <input class="mb-1 p-1 px-4 rounded-full" type="number" name="additionalDiscount" id="additionalDiscount" min="0" value="0" required>
+        <p id="additionalDiscountMsg" class="text-xs text-red-600"></p>
+
+        <!-- EXTRA DISCOUNTS    -->
+        <label class="mb-3 mt-6" for="extraDiscounts">Bonos y promociones: </label>
+        <input class="mb-1 p-1 px-4 rounded-full" name="extraDiscounts" id="extraDiscounts" type="text">
+        <p id="extraDiscountsMsg" class="text-xs text-red-600"></p>
+
+        <!-- FAST PAYMENT DISCOUNT CHECKBOX -->
+        <div id="fastPaymentContainer" class="mt-6 flex items-center">
+            <label class="mr-2" for="fastPay">Descuento por Pronto Pago: </label><input name="fastPay" id="fastPay" type="checkbox" class="shadow checked:bg-blue-500 disabled:bg-gray-300">
+        </div>
+
+        <button class="text-white bg-blue-500 hover:bg-blue-500/90 tracking-wider p-2 mt-5 rounded-full" type="submit">Generar Cotización</button>
+    </form>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
